@@ -1,3 +1,4 @@
+
 \documentclass{beamer}
 %Tomado de https://bioinformatiquillo.wordpress.com/2008/10/08/temas-para-presentaciones-de-la-clase-latex-beamer/
 \usepackage{color}
@@ -182,24 +183,76 @@ Let $\mathcal{G}$ be a proper groupoid, let $X$ and $Y$ be smooth $\mathcal{G}$-
     \end{align*}
 \end{frame}
 
-%\begin{frame}{Main definitions}
+\begin{frame}{Groupoid definition}
+Let $\mathcal{G}$ be a topological groupoid\footnote{A topological groupoid is a groupoid $\mathcal{G}$ such that $Z$ and $\mathcal{G}$ are Hausdorff and the structure maps source and target $s,t:\mathcal{G}\to Z$ are continuous and open (see \cite{FSW20}, p. 2).}.
+    \begin{itemize}
+        \item A topological space $X$ is called a {\bf $\mathcal{G}$-space} if there is a continuous map $a:X\to Z$ called the {\bf anchor} map and a homeomorphism
+        \begin{align*}
+             \mathcal{G}_{s}\times_{a} X\to \mathcal{G}_{t}\times_{a} X: (g,x)\mapsto (g,g\cdot x),
+        \end{align*}
+        which determines the {\bf action}, and holds associativity and unitality conditions.
+    \end{itemize}
+\end{frame}
 
-%{\bf Cohomology Theory:} $\mathscr{H}_{\Gamma}^{*}:(Proper\ Pairs)\to (R-mod)$ with connection maps ${\partial^{n}_{\Gamma}}:\mathscr{H}_{\Gamma}^{n}(A)\xrightarrow\mathscr{H}_{\Gamma}^{n+1}(X,A)$ with axioms
-%\begin{itemize}
-%    \item $\Gamma$-homotopy invariance: If $f$ and $f'$ are homotopics then $f^{*}=f'^{*}$
-%    \item Long exact sequence: For $i:A\rightarrow X$ and $j:X\rightarrow(X,A)$, 
-%    $$\mathscr{H}_{\Gamma}^{n}(X,A)\xrightarrow{j^{n}}\mathscr{H}_{\Gamma}^{n}(X)
-%    \xrightarrow{i^{n}}\mathscr{H}_{\Gamma}^{n}(A)\xrightarrow{\partial^{n}_{\Gamma}}\mathscr{H}_{\Gamma}^{n+1}(X,A)$$
-%    \item Excision: For $(X,A)$ a $\Gamma$-proper-pair and $f:A\rightarrow B$, the canonical map $F:(X,A)\rightarrow( X\cup_f B,B)$ induces an isomorphism
-%    $$F^{*}:\mathscr{H}_{\Gamma}^{n}(X,A)\rightarrow\mathscr{H}_{\Gamma}^{n}(X\cup_f B,B).$$
-%    \item Disjoint union: the following map is a group isomorphism:
-%    $$\prod_{i\in I}j_{i}^{*}:\mathscr{H}_{\Gamma}^{n}(\coprod_{i\in I}X_i) \rightarrow    \prod_{i\in I}\mathscr{H}_n^\Gamma(X_i)$$
+\begin{frame}{Groupoid examples}
+\begin{example}
+For a group $\Gamma$, consider the groupoid $\mathcal{G}:=\Gamma^{*}$, where $\mathcal{G}^{0}:=\{*\}$ and $\mathcal{G}^{1}:=\Gamma$.
+\end{example}
+
+\begin{example}
+    The transformation groupoid $\mathcal{G}\ltimes X$ (see \cite{EM10}, p. 4, Definition 2.2) is defined by $X$ as its object space, morphisms the elements of $\mathcal{G}_{s}\times_{a} X$; the range and source maps are defined by $r(g,x)= g\cdot x$ and $s(g,x)= x$  respectively ; and its composition  is given by $(g,x)\cdot (h,y) = (gh,y)$.
+\end{example}
+
+\end{frame}
+
+\begin{frame}{$(\Gamma^{*}\ltimes X)$-bundles}
+When $\mathcal{G}$ is the transformation groupoid (or action groupoid) of a group, we recover the notion of a $\Gamma$-vector bundle. For $\Gamma$ be a discrete group, and $X$ be a $\Gamma$-space, there is a bijection: 
+\begin{align*}
+\{\Gamma{\rm -vector\ bundles\ over\ }X\}\leftrightarrow \{(\Gamma^{*}\ltimes X){\rm -vector\ bundles\ over\ }X\} 
+\end{align*}
+$(\leftarrow):$ For a $(\Gamma^{*}\ltimes X)$-vector bundle $\rho:E\to X$, we note the $\Gamma$-vector bundle structure with action on $E$ given by
+\begin{align*}
+\gamma e:= (\gamma, \rho(e))e, 
+\end{align*}
+where this action and Remark \ref{remark grupo 1} make $\rho$ a $\Gamma$-equivariant map
+\begin{align*}
+\rho(\gamma e)=\rho((\gamma,\rho(e))e)=(\gamma,\rho(e))\rho(e)=\gamma\rho(e).
+\end{align*} 
+
+\vspace{0.2cm}
+
+\noindent $(\rightarrow):$ If $\rho:E\to X$ is a $\Gamma$-vector bundle we note that it has a $(\Gamma^{*}\ltimes X)$-vector bundle structure by the anchor map $a:=\rho:E\to X$, and the natural action
+\begin{align*}
+(\gamma, x)e:= \gamma e\ \ \ when\ s((\gamma,x))=a(e),\ i.e.,\ e\in E_{x}=\rho^{-1}(x)
+\end{align*}
+where this implies that $\rho$ is a $(\Gamma^{*}\ltimes X)$-equivariant map by
+\begin{align*}
+\rho((\gamma,x)e)=\rho(\gamma e)=\gamma\rho(e)=\gamma x\ \ \Leftrightarrow\ \  (\gamma,x)e\in E_{\gamma x}=\rho^{-1}(\gamma x).
+\end{align*}
+
+\end{frame}
+
+\begin{frame}{Main definitions}
+
+{\bf Cohomology Theory:} $\mathscr{H}_{\Gamma}^{*}:(Proper\ Pairs)\to (R-mod)$ with connection maps $\partial^{n}_{\Gamma}:\mathscr{H}_{\Gamma}^{n}(A)\to\mathscr{H}_{\Gamma}^{n+1}(X,A)$ with axioms
+\begin{itemize}
+   \item $\Gamma$-homotopy invariance: If $f$ and $f'$ are homotopics then $f^{*}=f'^{*}$
+    \item Long exact sequence: For $i:A\to X$ and $j:X\to(X,A)$, 
+    \begin{align*}
+    \mathscr{H}_{\Gamma}^{n}(X,A)\xrightarrow{j^{n}}\mathscr{H}_{\Gamma}^{n}(X)
+    \xrightarrow{i^{n}}\mathscr{H}_{\Gamma}^{n}(A)\xrightarrow{\partial^{n}_{\Gamma}}\mathscr{H}_{\Gamma}^{n+1}(X,A)
+    \end{align*}
+   
+   \item Excision: For $(X,A)$ a $\Gamma$-proper-pair and $f:A\to B$, the canonical map $F:(X,A)\to( X\cup_f B,B)$ induces an isomorphism
+    $$F^{*}:\mathscr{H}_{\Gamma}^{n}(X,A)\rightarrow\mathscr{H}_{\Gamma}^{n}(X\cup_f B,B).$$
+    \item Disjoint union: the following map is a group isomorphism:
+    $$\prod_{i\in I}j_{i}^{*}:\mathscr{H}_{\Gamma}^{n}(\coprod_{i\in I}X_i) \rightarrow    \prod_{i\in I}\mathscr{H}^{n}_{\Gamma}(X_i)$$
     
-%\end{itemize}
+\end{itemize}
 
 
     
-%\end{frame}
+\end{frame}
 
 \section{Principal tool}
 
@@ -211,7 +264,7 @@ Let $\mathcal{G}$ be a proper groupoid, let $X$ and $Y$ be smooth $\mathcal{G}$-
     With axioms:\pause
     \begin{itemize}
         \item $(f\circ g)!=f!\circ g!$.\pause
-        \item If $f$ and $f'$ are homotopics then $f!=f'!$\pause
+        \item If $f$ and $f'$ are homotopic then $f!=f'!$\pause
         \item For $\rho:E\to M$ is a $\Gamma$-vector bundle, if $s:M\to E$ is the zero section, then the following map is a Thom isomorphism:
         \begin{align*}
             s!:\mathscr{H}_{\Gamma}^{*}(M)\to \mathscr{H}_{\Gamma}^{*+dim(E)-dim(M)}(E)
