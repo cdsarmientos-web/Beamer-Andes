@@ -1,0 +1,453 @@
+\documentclass{beamer}
+%Tomado de https://bioinformatiquillo.wordpress.com/2008/10/08/temas-para-presentaciones-de-la-clase-latex-beamer/
+\usepackage{color}
+\usepackage[english]{babel}
+%\usepackage[pdftex]{graphicx}
+%\usepackage[pdftex]{hyperref}
+\usepackage{amsmath,amsthm,amscd}
+\usepackage{amsmath,amssymb,amsthm,graphicx, mathrsfs}
+\usepackage[all]{xy}
+\usepackage[utf8]{inputenc}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+%\usepackage{fontspec}
+\usepackage{pb-diagram}
+\usepackage{tikz-cd}
+\usepackage{multicol}
+\usepackage{url}
+\usetheme{Boadilla}
+\usefonttheme{serif}%para que se ponga la fuende por defecto d elos pdf de Latex
+%\setmainfont{DarwinFont}
+
+%1) Antibes
+%2) bars
+%3) Bergen
+%4) Berkeley
+%5) Berlin
+%6) Boadilla
+%7) boxes
+%8 ) classic
+%9) Copenhagen
+%10) Darmstadt
+%11) default
+%12) Dresden
+%13) Frankfurt
+%14) Goettingen
+%15) Hannover
+%16) Ilmenau
+%17) JuanLesPins
+%18) lined
+%19) Luebeck
+%20) Madrid
+%21) Malmoe
+%22) Marburg
+%23) Montpellier
+%24) PaloAlto
+%25) Pittsburgh
+%26) Rochester
+%27) shadow
+%28) sidebar
+%29) Singapore
+%30) split
+%31) Szeged
+%32) Tree
+%33) Warsaw
+
+\usecolortheme{default}
+
+%1) albatross (azul marino)
+%2) beetle (azul y gris)
+%3) crane (naranja y blanco)
+%4) default (por defecto)
+%5) dolphin (azul marino y blanco)
+%6) dove (gris y blanco)
+%7) fly (gris)
+%8 ) lily
+%9) orchid
+%10) rose
+%11) seagull (gris y blanco)
+%12) seahorse
+%13) sidebartab
+%14) structure
+%15) whale (azul marino y blanco)
+
+
+%\newtheorem{theorem}{Theorem}[section]
+
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+
+
+\theoremstyle{definition}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{examples}[theorem]{Examples}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{notation}[theorem]{Notation}
+%\newtheorem{problem}[theorem]{Problem}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+
+
+
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{color}
+\usepackage[all]{xy}
+\usepackage{multicol}
+
+\newtheorem{definicion}{Definición}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{teorema}{Teorema}
+
+
+\title[Pushforward structure to relate geometric cycles]{{\bf{\large Pushforward structure to relate geometric cycles}}}
+\author[C.D.S.S]{Cristian D. Sarmiento Santiago\\\vspace{0.1cm} {\footnotesize Universidad Nacional de Colombia}\\\vspace{0.4cm}
+A joint work with M. Velasquez and P. Carrillo.}
+\date[CCMXXIV]{Congreso Colombiano de Matemáticas\\ June 4, 2025}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}{Contents}
+\tableofcontents    
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Motivation and main problem}
+\begin{frame}{Motivation}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{Portada.png}
+        %\caption{Caption}
+        %\label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Problem of interest}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.8]{Auxiliar.png}
+        \caption{Auxiliary homology theory}
+        %\label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+
+\section{Main definitions}
+
+
+\begin{frame}{Basic definitions}
+A continuous map $f:X\to Y$ is called {\bf proper} if for every compact $K\subseteq Y$, we have that $f^{-1}(K)$ is a compact of $X$. \pause
+
+\vspace{0.3cm}
+
+The {\bf action} $\rho: G\times X\to X:(g,x)\mapsto g\cdot x$ is called {\bf proper} ($X$ locally compact and Hausdorff) if the map is a proper continuous function.$$G\times X\to X\times X:(g,x)\mapsto (g\cdot x,x)$$ \pause
+
+\vspace{0.3cm}
+
+{\bf Classifying space}: $X$ a proper $G$-space, then there exists a $G$-map $$\phi_{X}:X\to \underline{E}G,$$ and any two $G$-maps from $X$ to $\underline{E}G$ are $G$-homotopic.
+
+\end{frame}
+
+\begin{frame}{Emerson-Meyer}
+Let $\mathcal{G}$ be a proper groupoid, let $X$ and $Y$ be smooth $\mathcal{G}$-manifolds, and let $f:X\to Y$ be a smooth $\mathcal{G}$-equivariant map (+).\pause
+    Then, there are
+    \begin{itemize}
+        \item a smooth $\mathcal{G}$-vector bundle $V$ over $X$,
+        \item a smooth $\mathcal{G}$-vector bundle $E$ over $Z$,
+        \item a smoth $\mathcal{G}$-equivariant, open embedding $\eta_{f}:V\to E^{Y}$,
+    \end{itemize}
+    such that $f=\rho_{E^{Y}}\circ \eta_{f}\circ \xi_{V}$, where $\xi_{V}:X\to V$ is the $zero$-section of the fiber bundle $\rho_{V}:V\to X$. \pause
+    \begin{align*}
+        &\xymatrix{V\ar[r]^{\eta_{f}} & E^{Y}\ar[d]^{\rho_{E^{Y}}}& E\ar[d]\\
+	{X}\ar[r]_{f}\ar[u]^{\xi_{V}} & Y\ar[r]_{a}& \underline{E}\Gamma}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Main definitions}
+
+{\bf Cohomology Theory:} $\mathscr{H}_{\Gamma}^{*}:(Proper\ Pairs)\to (R-mod)$ with connection maps ${\partial^{n}_{\Gamma}}:\mathscr{H}_{\Gamma}^{n}(A)\xrightarrow\mathscr{H}_{\Gamma}^{n+1}(X,A)$ with axioms
+\begin{itemize}
+    \item $\Gamma$-homotopy invariance: If $f$ and $f'$ are homotopics then $f^{*}=f'^{*}$
+    \item Long exact sequence: For $i:A\rightarrow X$ and $j:X\rightarrow(X,A)$, 
+    $$\mathscr{H}_{\Gamma}^{n}(X,A)\xrightarrow{j^{n}}\mathscr{H}_{\Gamma}^{n}(X)
+    \xrightarrow{i^{n}}\mathscr{H}_{\Gamma}^{n}(A)\xrightarrow{\partial^{n}_{\Gamma}}\mathscr{H}_{\Gamma}^{n+1}(X,A)$$
+    \item Excision: For $(X,A)$ a $\Gamma$-proper-pair and $f:A\rightarrow B$, the canonical map $F:(X,A)\rightarrow( X\cup_f B,B)$ induces an isomorphism
+    $$F^{*}:\mathscr{H}_{\Gamma}^{n}(X,A)\rightarrow\mathscr{H}_{\Gamma}^{n}(X\cup_f B,B).$$
+    \item Disjoint union: the following map is a group isomorphism:
+    $$\prod_{i\in I}j_{i}^{*}:\mathscr{H}_{\Gamma}^{n}(\coprod_{i\in I}X_i) \rightarrow    \prod_{i\in I}\mathscr{H}_n^\Gamma(X_i)$$
+    
+\end{itemize}
+
+
+    
+\end{frame}
+
+\section{Principal tool}
+
+\begin{frame}{Pushforward structure}
+    For $f:(M,\partial M)\to (N,\partial N)$, 
+    \begin{align*}
+        f!:\mathscr{H}_{\Gamma}^{*}(M)\to \mathscr{H}_{\Gamma}^{*+dim(N)-dim(M)}(N)
+    \end{align*}
+    With axioms:\pause
+    \begin{itemize}
+        \item $(f\circ g)!=f!\circ g!$.\pause
+        \item If $f$ and $f'$ are homotopics then $f!=f'!$\pause
+        \item For $\rho:E\to M$ is a $\Gamma$-vector bundle, if $s:M\to E$ is the zero section, then the following map is a Thom isomorphism:
+        \begin{align*}
+            s!:\mathscr{H}_{\Gamma}^{*}(M)\to \mathscr{H}_{\Gamma}^{*+dim(E)-dim(M)}(E)
+        \end{align*}\pause
+        \item For a collar around $\partial N$ in $N$, $l!=\partial^{*}$ and $i^{0}!=j^{*}$
+        \begin{align*} 
+    \cdots\to\mathscr{H}_{\Gamma}^{*-1}(\partial N)\xrightarrow{l_!}\mathscr{H}_{\Gamma}^*(N^0)\xrightarrow{i^0_!}\mathscr{H}_{\Gamma}^*(N)\to\cdots
+    \end{align*}
+    \end{itemize}
+    
+\end{frame}
+
+
+\begin{frame}{Equivalence relation}
+
+\begin{itemize}
+    \item $n$-Cycle over $X,A$: $\pi:(M,\partial M)\to (X,A)$ and $x_{M}\in \mathscr{H}_{\Gamma}^{n}(M)$.\pause
+    \item Related cycles: $(M,\partial M,\pi_{M}, x_{M})\sim (N,\partial N,\pi_{N}, x_{N})$ if the following diagram is commutative and $f_{M}!(x_{M})=f_{N}!(x_{N})$:
+    \begin{align*}\xymatrix{W\ar[dr]|{\pi_{W}} & N\ar[l]_{f_{N}} \ar[d]^{\pi_{N}} \\
+    M\ar[u]^{f_{M}}\ar[r]_{\pi_{M}}& X }\end{align*}\pause
+    \item Define $\mathscr{H}_{*}^{pf}(X,A;\Gamma)$ the set of equivalence relations of tuples $(M,\partial M,\pi_{M}, x_{M})$ where $x_{M}\in \mathscr{H}_{\Gamma}^{*+dim(M)}(M)$.
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Equivalence relation (sketch of proof) I}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\linewidth]{Relacion 1.png}
+        \caption{Initial relations.}
+        %\label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Equivalence relation (sketch of proof) II}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{Relacion 2.png}
+    \caption{$\Gamma$-vector bundles}
+    %\label{fig:enter-label}
+\end{figure}
+    
+\end{frame}
+
+
+\begin{frame}{Equivalence relation (sketch of proof) III}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Relación 3.png}
+    \caption{The desired connection space.}
+    %\label{fig:enter-label}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Examples}
+$[M,\partial M,\pi_{M}, x_{M}]\in\mathscr{H}_{*}^{pf}(X,A;\Gamma)$ with $x_{M}\in \mathscr{H}_{\Gamma}^{*+dim(M)}(M)$ $$\pi_{M}:M\to X$$
+\begin{itemize}
+    \item $\mathscr{H}_{*}^{pf}(\{a\};\Gamma)=\{[M,x_{M}]:\partial M=\emptyset \}$ ($|\Gamma|<\infty$). \pause
+    \item $\mathscr{H}_{0}^{pf}(X,A;\Gamma)\in [S^{n},\emptyset, \pi_{S^{n}},\alpha]$, where $\pi_{S^{n}}:S^{n}\to X$ is an $n$-loop and $\alpha\in \mathscr{H}_{\Gamma}^{n}(S^{n})$. \pause
+    \item For $k>0$, in $\mathscr{H}_{k}^{pf}(X,A;\Gamma)$, $[S^{n},\emptyset, \pi_{S^{n}}, \alpha]=0$, by $\mathscr{H}_{\Gamma}^{n+k}(S^{n})=0$ ($\Gamma=\{e\}$). 
+\end{itemize}
+
+\end{frame}
+
+
+
+\section{Homology theory}
+
+\begin{frame}{Functoriality and homotopic invariance}
+\begin{multicols}{2}
+    \begin{align*}
+        &\text{For a map $g:(X,A)\to (Y,B)$},\\
+        g_{*}&:\mathscr{H}_{*}^{pf}(X,A;\Gamma)\to \mathscr{H}_{*}^{pf}(Y,B;\Gamma):\\&[M,\partial M,\pi,x]\mapsto [M,\partial M,g\circ \pi,x]
+    \end{align*}
+\begin{align*}
+    \xymatrix{&\\
+              M\ar[d]_{\pi}&\\
+              X\ar[r]_{g}&Y
+    }
+\end{align*}
+\end{multicols}
+\begin{enumerate}
+    \item $(f\circ g)_{*}=f_{*}\circ g_{*}$
+    \item $\Gamma$-homotopy invariance: if $g_{0}, g_{1}:(X,A)\to (Y,B)$ are proper $\Gamma$-homotopic maps of $\Gamma$-proper pairs, then
+    \begin{align*}
+        g_{0*}=g_{1*}: \mathscr{H}_{n}^{pf}(X,A;\Gamma)\to \mathscr{H}_{n}^{pf}(Y,B;\Gamma)
+    \end{align*}
+\end{enumerate}
+
+
+    
+\end{frame}
+
+\begin{frame}{Long exact sequence}
+      
+\begin{align*}
+    \xymatrix{
+	\text{For the sequence of $\Gamma$-proper pairs}&(A,\emptyset) \ar[r]^{j}& {(X,\emptyset)} \ar[r]^{i}& {(X,A)}
+	}
+\end{align*}
+
+The following sequence is exact 
+\begin{align*}
+    \xymatrix{\mathscr{H}^{pf}_{*}(A;\Gamma) \ar[r]^{j_{*}}& {\mathscr{H}^{pf}_{*}(X;\Gamma)} \ar[r]^{i_{*}}& {\mathscr{H}^{pf}_{*}(X,A;\Gamma)} \ar[r]^{\partial_{*}}& {\mathscr{H}^{pf}_{*-1}(A;\Gamma)}}
+\end{align*}\pause
+where
+\begin{itemize}
+    \item $j_{*}([M,\emptyset,\pi_{M},x_{M}])= [M,\emptyset,j\circ \pi_{M},x_{M}]$.
+    \item $i_{*}([M,\emptyset,\pi_{M},x_{M}])=[M,\emptyset,\pi_{M},x_{M}]$.
+    \item $\partial([M,\partial M,\pi_{M},x_{M}])=[\partial M,\emptyset,\pi_{M}|_{\partial M}, i_{\partial M}^{*}(x_{M})]$, with $i_{\partial M}:\partial M \hookrightarrow M$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{{\bf Exactness in $\mathscr{H}_{*}^{pf}(X;\Gamma)
+    $}}
+     $Ker(i_{*})\subseteq Im(j_{*})$: Let $[M,\emptyset, \pi_{M}, x_{M}]=[N,\partial N, \pi_{N}, 0]\in \mathscr{H}^{pf}_{*}(X,A;\Gamma)$ with $f_{M}!(x_{M})=0$ with $f_{M}:M\to W$. $f_{M}!(x_{M})\in Ker(i_{W}^{0}!)$
+     \begin{align*}
+         \xymatrix{{\mathscr{H}_{\Gamma}^{*-1}(\partial W)}\ar[r]_{\partial} & {\mathscr{H}_{\Gamma}^{*}(W^{0})} \ar[r]_{i_{W^{0}}!} & {\mathscr{H}_{\Gamma}^{*}(W)}}
+     \end{align*}\pause
+     There exist $y\in \mathscr{H}_{\Gamma}^{*-1}(\partial W)$ such that $\partial(y)=f_{M}!(x_{M})$, and we get
+     \begin{align*}
+    j_{*}([\partial W, \emptyset,\pi_{W}|_{\partial W}, y])&=[\partial W, \emptyset,j\circ \pi_{W}|_{\partial W}, y]\\&=[\partial W, \emptyset,\pi_{W}\circ l, y]\\
+    &=[W^{0}, \emptyset,\pi_{W}|_{W^{0}}, l!(y)]\\
+    &=[W^{0}, \emptyset,\pi_{W}|_{W^{0}}, \partial(y)]\\
+    &=[W^{0}, \emptyset,\pi_{W}|_{W^{0}}, f_{M}!(x_{M})]\\
+    &=[M, \emptyset,\pi_{W}\circ f_{M},x_{M}]\\
+    &=[M, \emptyset,\pi_{M},x_{M}].
+\end{align*}
+\end{frame}
+
+\begin{frame}{{\bf Exactness in $\mathscr{H}_{*}^{pf}(X,A;\Gamma)
+    $}}
+$Ker(\partial)\subseteq Im(i_{*})$: Let $[M,\partial M,\pi_{M},x_{M}]\in Ker(\partial)\subseteq \mathscr{H}_{*}^{pf}(X,A;\Gamma)$, then, $[\partial M , \emptyset, \pi_{M}|_{\partial M}, r_{\partial}(x_{M})]=[N,\emptyset, \pi_{N},0]$    \pause
+  \begin{align*}
+      &\ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+ \xymatrix{V\ar[r]^{\eta_{f}} & E\ar[d]^{\rho_{E}} \\
+	{\partial M}\ar[r]_{f}\ar[u]^{\xi_{V}} & W}\\
+    T&=\mathbb{R}^{k}\times M \times \{0\}\bigcup_{(\phi,0)} DNC(E,\partial M)|_{[0,1]}\\
+    &=\mathbb{R}^{k}\times M \times \{0\}\bigcup_{(\phi,0)} (E\times (0,1])\sqcup (V\times \{0\}),
+\end{align*}\pause
+$$[M,\partial M, \pi_{M}, x_{M} ]=[T,\partial T, \pi_{T}, (\iota\circ \xi_{V})!(x_{M})]=i_{*}([T^{0},\emptyset, \pi_{T}|_{T^{0}},y])$$ 
+\end{frame}
+
+\begin{frame}{{\bf Exactness in $\mathscr{H}_{*}^{pf}(A;\Gamma)
+    $}}
+$[M,\emptyset, \pi_{M}, x_{M}]\in Ker(j_{*-1})\subseteq Im(\partial)$
+$$[M,\emptyset, j\circ\pi_{M},x_{M}]=[W,\emptyset,\pi_{W}, 0_{W}]\in\mathscr{H}_{*}^{pf}(X,\emptyset;\Gamma)$$\pause
+\begin{align*}
+    &\ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \xymatrix{V\ar[r]^{\eta_{f}} & E\ar[d]^{\rho_{E}} \\
+	{M}\ar[r]_{f}\ar[u]^{\xi_{V}} & W}\\
+    T:&= DNC(E,M)|_{[0,1)}=V\times \{0\}\sqcup E\times(0,1)
+\end{align*}\pause
+    $$\partial([T,\partial T,\pi_{T}, y])=[M,\emptyset,\pi_{M},x_{M}]$$
+\end{frame}
+
+\begin{frame}{Excision and future work}
+
+{\bf Excision:} For a map $\phi:(X,A)\to (Y,B)$ such that $Y\cong X\cup_{A}B$, we get that $\mathscr{H}^{pf}_{*}(X,A)\cong \mathscr{H}^{pf}_{*}(X\cup_{A}B, B)$. \pause
+
+\vspace{0.3cm}
+
+{\bf Idea:}
+\begin{align*}
+    [M,\partial M,\pi_{M},x_{M}]\in\mathscr{H}^{pf}_{*}(X,A)\mapsto {[M,\partial M,\phi\circ\pi_{M},x_{M}]\in \mathscr{H}^{pf}_{*}(Y,B)}
+\end{align*}
+
+with inverse
+\begin{align*}
+    h([M,\partial M,\pi_{M},x_{M}])=[M_{X}=\pi_{M}^{-1}(U),\partial M_{X},r\circ\pi_{M}|_{M_{X}},i_{M_{X}}^{*}x_{M}].
+\end{align*}\pause
+\begin{align*}
+\xymatrix{M \ar[d]_{\pi_{M}}& {M_{X}} \ar[d]_{ \pi_{M}}\ar[l]_{i_{M_{X}}} \\
+	Y & U\ar[l]_{i_{U}}\ar[r]_{r} & X\\
+    &X\ar[ul]^{\phi}\ar[u]^{i_{X}}&}
+\end{align*}
+
+    
+\end{frame}
+
+
+
+
+\begin{frame}{Bibliography}
+
+
+    
+\thebibliography{10}
+\bibitem{EM10} Heath Emerson and Ralf Meyer. Equivariant embedding theorems and topological index maps. Advances in Mathematics,
+225(5):2840–2882, 2010.
+
+\bibitem{Lück05} Wolfgang Lück. Equivariant cohomological chern characters. International Journal of Algebra and Computation, 15(05n06):1025–1052, 2005.
+
+\bibitem{DS19} Claire Debord and Georges Skandalis. Lie groupoids, pseudodifferential calculus, and index theory. Advances in Noncommutative
+Geometry: On the Occasion of Alain Connes’ 70th Birthday, pages
+245–289, 2019.
+
+\bibitem[BCH94]{BCH94} Paul Baum, Alain Connes, and Nigel Higson. Classifying space for proper actions and K-theory of group $C^{*}$-algebras. Contemporary Mathematics, 167:241-241, 1994
+
+\end{frame}
+
+\begin{frame}{Bibliography}
+\thebibliography{10}
+
+\bibitem{BHS07} Paul Baum, Nigel Higson, and Thomas Schick. On the equivalence of geometric and
+analytic K-homology. Pure Appl. Math. Q., 3(1):1–24, 2007.
+
+\bibitem{BHS10} Paul Baum, Nigel Higson, and Thomas Schick. A geometric description of equivariant K-homology for proper actions. Quanta of maths 11 (2010): 1-22.
+
+
+\bibitem{CWW22} Paulo Carrillo Rouse, Bai-Ling Wang, and Hang Wang. Topological K-theory for
+discrete groups and index theory. arXiv, page 2012.12359, 2022
+
+\bibitem{CW14} Paulo Carrillo Rouse and Bai-Ling Wang. Geometric Baum-Connes assembly map
+for twisted differentiable stacks. arXiv preprint arXiv:1402.3456, 2014
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+   % 
+   \begin{figure}
+       \centering
+       \includegraphics[scale=0.2]{universidad-tecnologica-de-pereira-banner.jpg}
+       \label{fig:enter-label}
+   \end{figure}
+\end{center}
+    \begin{center}
+        {{\huge Thanks a lot :)} }
+    \end{center}
+    
+\end{frame}
+
+
+
+
+\end{document}
