@@ -168,6 +168,47 @@ The {\bf action} $\rho: G\times X\to X:(g,x)\mapsto g\cdot x$ is called {\bf pro
 
 \end{frame}
 
+\begin{frame}{Groupoid and Groupoid actions}
+
+    \begin{itemize}
+    \item A topological groupoid is a groupoid $\mathcal{G}$ such that $Z$ and $\mathcal{G}$ are Hausdorff and the structure maps source and target $s,t:\mathcal{G}\to Z$ are continuous and open.
+        \item Let $\mathcal{G}$ be a topological groupoid. A topological space $X$ is called a {\bf $\mathcal{G}$-space} if there is a continuous map $a:X\to Z$ called the {\bf anchor} map and a homeomorphism
+        \begin{align*}
+             \mathcal{G}_{s}\times_{a} X\to \mathcal{G}_{t}\times_{a} X: (g,x)\mapsto (g,g\cdot x),
+        \end{align*}
+        which determines the {\bf action}, and holds associativity and unitality conditions.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Groupoid examples}
+\begin{example}
+For a group $\Gamma$, consider the groupoid $\mathcal{G}:=\Gamma^{*}$, where $\mathcal{G}^{0}:=\{*\}$ and $\mathcal{G}^{1}:=\Gamma$.
+\end{example}\pause
+
+\begin{example}
+    The transformation groupoid $\mathcal{G}\ltimes X$ (see \cite{EM10}, p. 4, Definition 2.2) is defined by $X$ as its object space, morphisms the elements of $\mathcal{G}_{s}\times_{a} X$; the range and source maps are defined by $r(g,x)= g\cdot x$ and $s(g,x)= x$  respectively ; and its composition  is given by $(g,x)\cdot (h,y) = (gh,y)$.
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}{$(\Gamma^{*}\ltimes X)$-bundles}
+When $\mathcal{G}$ is the transformation groupoid (or action groupoid) of a group, we recover the notion of a $\Gamma$-vector bundle. For $\Gamma$ be a discrete group, and $X$ be a $\Gamma$-space, there is a bijection: 
+\begin{align*}
+\{\Gamma{\rm -vector\ bundles\ over\ }X\}\leftrightarrow \{(\Gamma^{*}\ltimes X){\rm -vector\ bundles\ over\ }X\} 
+\end{align*}\pause
+$(\leftarrow):$ For a $(\Gamma^{*}\ltimes X)$-vector bundle $\rho:E\to X$, we note the $\Gamma$-vector bundle structure with action on $E$ given by
+\begin{align*}
+\gamma e:= (\gamma, \rho(e))e, 
+\end{align*}\pause
+\noindent $(\rightarrow):$ If $\rho:E\to X$ is a $\Gamma$-vector bundle we note that it has a $(\Gamma^{*}\ltimes X)$-vector bundle structure by the anchor map $a:=\rho:E\to X$, and the natural action
+\begin{align*}
+(\gamma, x)e:= \gamma e\ \ \ when\ s((\gamma,x))=a(e),\ i.e.,\ e\in E_{x}=\rho^{-1}(x)
+\end{align*}
+
+\end{frame}
+
 \begin{frame}{Emerson-Meyer}
 Let $\mathcal{G}$ be a proper groupoid, let $X$ and $Y$ be smooth $\mathcal{G}$-manifolds, and let $f:X\to Y$ be a smooth $\mathcal{G}$-equivariant map (+).\pause
     Then, there are
@@ -176,61 +217,15 @@ Let $\mathcal{G}$ be a proper groupoid, let $X$ and $Y$ be smooth $\mathcal{G}$-
         \item a smooth $\mathcal{G}$-vector bundle $E$ over $Z$,
         \item a smoth $\mathcal{G}$-equivariant, open embedding $\eta_{f}:V\to E^{Y}$,
     \end{itemize}
-    such that $f=\rho_{E^{Y}}\circ \eta_{f}\circ \xi_{V}$, where $\xi_{V}:X\to V$ is the $zero$-section of the fiber bundle $\rho_{V}:V\to X$. \pause
+    such that $f=\rho_{E^{Y}}\circ \eta_{f}\circ \xi_{V}$, where $\xi_{V}:X\to V$ is the $zero$-section of the vector bundle $\rho_{V}:V\to X$. \pause
     \begin{align*}
         &\xymatrix{V\ar[r]^{\eta_{f}} & E^{Y}\ar[d]^{\rho_{E^{Y}}}& E\ar[d]\\
 	{X}\ar[r]_{f}\ar[u]^{\xi_{V}} & Y\ar[r]_{a}& \underline{E}\Gamma}
     \end{align*}
 \end{frame}
 
-\begin{frame}{Groupoid definition}
-Let $\mathcal{G}$ be a topological groupoid\footnote{A topological groupoid is a groupoid $\mathcal{G}$ such that $Z$ and $\mathcal{G}$ are Hausdorff and the structure maps source and target $s,t:\mathcal{G}\to Z$ are continuous and open (see \cite{FSW20}, p. 2).}.
-    \begin{itemize}
-        \item A topological space $X$ is called a {\bf $\mathcal{G}$-space} if there is a continuous map $a:X\to Z$ called the {\bf anchor} map and a homeomorphism
-        \begin{align*}
-             \mathcal{G}_{s}\times_{a} X\to \mathcal{G}_{t}\times_{a} X: (g,x)\mapsto (g,g\cdot x),
-        \end{align*}
-        which determines the {\bf action}, and holds associativity and unitality conditions.
-    \end{itemize}
-\end{frame}
 
-\begin{frame}{Groupoid examples}
-\begin{example}
-For a group $\Gamma$, consider the groupoid $\mathcal{G}:=\Gamma^{*}$, where $\mathcal{G}^{0}:=\{*\}$ and $\mathcal{G}^{1}:=\Gamma$.
-\end{example}
 
-\begin{example}
-    The transformation groupoid $\mathcal{G}\ltimes X$ (see \cite{EM10}, p. 4, Definition 2.2) is defined by $X$ as its object space, morphisms the elements of $\mathcal{G}_{s}\times_{a} X$; the range and source maps are defined by $r(g,x)= g\cdot x$ and $s(g,x)= x$  respectively ; and its composition  is given by $(g,x)\cdot (h,y) = (gh,y)$.
-\end{example}
-
-\end{frame}
-
-\begin{frame}{$(\Gamma^{*}\ltimes X)$-bundles}
-When $\mathcal{G}$ is the transformation groupoid (or action groupoid) of a group, we recover the notion of a $\Gamma$-vector bundle. For $\Gamma$ be a discrete group, and $X$ be a $\Gamma$-space, there is a bijection: 
-\begin{align*}
-\{\Gamma{\rm -vector\ bundles\ over\ }X\}\leftrightarrow \{(\Gamma^{*}\ltimes X){\rm -vector\ bundles\ over\ }X\} 
-\end{align*}
-$(\leftarrow):$ For a $(\Gamma^{*}\ltimes X)$-vector bundle $\rho:E\to X$, we note the $\Gamma$-vector bundle structure with action on $E$ given by
-\begin{align*}
-\gamma e:= (\gamma, \rho(e))e, 
-\end{align*}
-where this action and Remark \ref{remark grupo 1} make $\rho$ a $\Gamma$-equivariant map
-\begin{align*}
-\rho(\gamma e)=\rho((\gamma,\rho(e))e)=(\gamma,\rho(e))\rho(e)=\gamma\rho(e).
-\end{align*} 
-
-\vspace{0.2cm}
-
-\noindent $(\rightarrow):$ If $\rho:E\to X$ is a $\Gamma$-vector bundle we note that it has a $(\Gamma^{*}\ltimes X)$-vector bundle structure by the anchor map $a:=\rho:E\to X$, and the natural action
-\begin{align*}
-(\gamma, x)e:= \gamma e\ \ \ when\ s((\gamma,x))=a(e),\ i.e.,\ e\in E_{x}=\rho^{-1}(x)
-\end{align*}
-where this implies that $\rho$ is a $(\Gamma^{*}\ltimes X)$-equivariant map by
-\begin{align*}
-\rho((\gamma,x)e)=\rho(\gamma e)=\gamma\rho(e)=\gamma x\ \ \Leftrightarrow\ \  (\gamma,x)e\in E_{\gamma x}=\rho^{-1}(\gamma x).
-\end{align*}
-
-\end{frame}
 
 \begin{frame}{Main definitions}
 
@@ -249,12 +244,30 @@ where this implies that $\rho$ is a $(\Gamma^{*}\ltimes X)$-equivariant map by
     $$\prod_{i\in I}j_{i}^{*}:\mathscr{H}_{\Gamma}^{n}(\coprod_{i\in I}X_i) \rightarrow    \prod_{i\in I}\mathscr{H}^{n}_{\Gamma}(X_i)$$
     
 \end{itemize}
-
-
     
 \end{frame}
 
+
+
+
+
 \section{Principal tool}
+
+
+
+\begin{frame}
+\begin{definition}
+
+
+    For a $d$-dimensional real $\Gamma$-vector bundle  $E\to X$ over a proper $\Gamma$-space $X$, a $\mathscr{H}_{\Gamma}$-orientation for $E$ is a class $\tau\in \mathscr{H}_{\Gamma}^{d}(E)$ such that for each proper $\Gamma$-map $f:Y\to X$, multiplication with $f^{*}\tau \in \mathscr{H}_{\Gamma}^{d}(f^{*}E)$ induces an isomorphism (refered as Thom-isomorphism)
+    \begin{align*}
+        -\otimes \tau:\mathscr{H}_{\Gamma}^{*}(Y)\to \mathscr{H}_{\Gamma}^{*+d}(f^{*}E).
+    \end{align*}
+    We say that a smooth manifold with boundary $M$ is a $\mathscr{H}_{\Gamma}$-orientable if $TM$ is $\mathscr{H}_{\Gamma}$-orientable. When is chosen a fixed $\mathscr{H}_{\Gamma}$-orientation for a real $\Gamma$-vector bundle (or particularly for a manifold), we say that it is a $\mathscr{H}_{\Gamma}$-oriented bundle (or manifold).
+\end{definition}
+\end{frame}
+
+
 
 \begin{frame}{Pushforward structure}
     For $f:(M,\partial M)\to (N,\partial N)$, 
@@ -281,7 +294,7 @@ where this implies that $\rho$ is a $(\Gamma^{*}\ltimes X)$-equivariant map by
 \begin{frame}{Equivalence relation}
 
 \begin{itemize}
-    \item $n$-Cycle over $X,A$: $\pi:(M,\partial M)\to (X,A)$ and $x_{M}\in \mathscr{H}_{\Gamma}^{n}(M)$.\pause
+    \item $n$-Cycle over $(X,A)$: $\pi:(M,\partial M)\to (X,A)$ and $x_{M}\in \mathscr{H}_{\Gamma}^{n}(M)$.\pause
     \item Related cycles: $(M,\partial M,\pi_{M}, x_{M})\sim (N,\partial N,\pi_{N}, x_{N})$ if the following diagram is commutative and $f_{M}!(x_{M})=f_{N}!(x_{N})$:
     \begin{align*}\xymatrix{W\ar[dr]|{\pi_{W}} & N\ar[l]_{f_{N}} \ar[d]^{\pi_{N}} \\
     M\ar[u]^{f_{M}}\ar[r]_{\pi_{M}}& X }\end{align*}\pause
@@ -290,13 +303,28 @@ where this implies that $\rho$ is a $(\Gamma^{*}\ltimes X)$-equivariant map by
     
 \end{frame}
 
+\begin{frame}{Important Lemmas}
+\begin{lemma}
+    If $(M,\partial M, \pi_{M},x_{M})\sim (N,\partial N, \pi_{N},x_{N})$ by the maps $f_{M}:M\to W$ and $f_{N}:N\to W$, then we get that $(M,\partial M, \pi_{M},x_{M})\sim (N,\partial N, \pi_{N},x_{N})$ by maps $\phi_{M}:M\to E^{W}$ and $\phi_{N}:N\to E^{W}$ with $\phi_{N}$ being an embedding and $E^{W}\to W$ is a vector bundle. 
+\end{lemma}\pause
+
+\begin{lemma}
+For any $\Gamma$-proper embeddings $i_{1}:N\to W_{1}$ and $i_{2}:N\to W_{2}$, there exist $\Gamma$-vector bundles $D_{1}\to W_{1}$ and $D_{2}\to W_{2}$ such that $$\nu_{\xi_{D_{1}}\circ i_{1}}\cong \nu_{\xi_{D_{2}}\circ i_{2}}.$$
+\end{lemma}
+\end{frame}
+
+
+
 \begin{frame}{Equivalence relation (sketch of proof) I}
     \begin{figure}
         \centering
         \includegraphics[width=0.5\linewidth]{Relacion 1.png}
         \caption{Initial relations.}
         %\label{fig:enter-label}
-    \end{figure}
+    \end{figure}\pause
+    \begin{align*}
+    W:=(D_{1}\oplus \mathbb{R})_{\nu_{1}}\#_{\nu_{2}} (D_{2}\oplus\mathbb{R}),
+\end{align*}
 \end{frame}
 
 \begin{frame}{Equivalence relation (sketch of proof) II}
@@ -305,8 +333,8 @@ where this implies that $\rho$ is a $(\Gamma^{*}\ltimes X)$-equivariant map by
     \includegraphics[scale=0.5]{Relacion 2.png}
     \caption{$\Gamma$-vector bundles}
     %\label{fig:enter-label}
-\end{figure}
-    
+\end{figure}\pause
+    $$D_{1}:=a_{1}^{*}E_{2}\oplus C_{1}\to W_{1}$$.
 \end{frame}
 
 
@@ -329,7 +357,14 @@ $[M,\partial M,\pi_{M}, x_{M}]\in\mathscr{H}_{*}^{pf}(X,A;\Gamma)$ with $x_{M}\i
 
 \end{frame}
 
+\begin{frame}{Swinging}
+\begin{remark}\label{relation 1}
+    If there is a proper smooth, $\Gamma$-equivariant, $\mathscr{H}_{\Gamma}$-orientation preserving map $f:(M, \partial M)\to (N,\partial N)$ such that $\pi_{N}\circ f=\pi_{M}$ and $f!(x_{M})=x_{N}$, then 
+    $$[M,\partial M,\pi_{M},x_{M}]=[N,\partial N,\pi_{N},x_{N}],$$ i.e.,$$[M,\partial M,\pi_{N}\circ f,x_{M}]=[N,\partial N,\pi_{N},f!(x_{M})].$$
 
+\end{remark}
+
+\end{frame}
 
 \section{Homology theory}
 
@@ -398,15 +433,15 @@ where
 
 \begin{frame}{{\bf Exactness in $\mathscr{H}_{*}^{pf}(X,A;\Gamma)
     $}}
-$Ker(\partial)\subseteq Im(i_{*})$: Let $[M,\partial M,\pi_{M},x_{M}]\in Ker(\partial)\subseteq \mathscr{H}_{*}^{pf}(X,A;\Gamma)$, then, $[\partial M , \emptyset, \pi_{M}|_{\partial M}, r_{\partial}(x_{M})]=[N,\emptyset, \pi_{N},0]$    \pause
+$Ker(\partial)\subseteq Im(i_{*})$: Let $[M,\partial M,\pi_{M},x_{M}]\in Ker(\partial)\subseteq \mathscr{H}_{*}^{pf}(X,A;\Gamma)$, then, $[\partial M , \emptyset, \pi_{M}|_{\partial M}, r_{\partial}(x_{M})]=[W,\emptyset, \pi_{W},0]$    \pause
   \begin{align*}
-      &\ \ \ \ \ \ \ \ \ \ \ \ \ \ \
- \xymatrix{V\ar[r]^{\eta_{f}} & E\ar[d]^{\rho_{E}} \\
-	{\partial M}\ar[r]_{f}\ar[u]^{\xi_{V}} & W}\\
-    T&=\mathbb{R}^{k}\times M \times \{0\}\bigcup_{(\phi,0)} DNC(E,\partial M)|_{[0,1]}\\
-    &=\mathbb{R}^{k}\times M \times \{0\}\bigcup_{(\phi,0)} (E\times (0,1])\sqcup (V\times \{0\}),
-\end{align*}\pause
-$$[M,\partial M, \pi_{M}, x_{M} ]=[T,\partial T, \pi_{T}, (\iota\circ \xi_{V})!(x_{M})]=i_{*}([T^{0},\emptyset, \pi_{T}|_{T^{0}},y])$$ 
+ \xymatrix{M&M^{0}\ar[l]_{i_{M^{0}}}&{\partial M}\ar[r]_{f} \ar[l]_{l}& W}
+	\end{align*}
+	consider the embeddings $i_{M^{0}}\circ l:\partial M \to M$ and $f:\partial M \to W$, to get that there exist $\Gamma$-vector bundles $\rho_{D_{M}}:D_{M}\to M$ and $\rho_{D_{W}}:D_{W}\to W$ such that $\nu_{M}:=\nu_{\xi_{D_{M}}\circ i_{M^{0}}\circ l}\cong \nu_{\xi_{D_{W}}\circ f}=:\nu_{W}$, and 
+\begin{align*}
+    T:=(D_{M}\oplus \mathbb{R})_{\nu_{M}\oplus \mathbb{R}}\#_{\nu_{W}\oplus \mathbb{R}} (D_{W}\oplus\mathbb{R}),
+\end{align*} \pause
+$$[M,\partial M, \pi_{M}, x_{M} ]=[T,\partial T, \pi_{T},\iota!(x_{M})]=i_{*}([T^{0},\emptyset, \pi_{T}|_{T^{0}},y])$$ 
 \end{frame}
 
 \begin{frame}{{\bf Exactness in $\mathscr{H}_{*}^{pf}(A;\Gamma)
@@ -422,27 +457,23 @@ $$[M,\emptyset, j\circ\pi_{M},x_{M}]=[W,\emptyset,\pi_{W}, 0_{W}]\in\mathscr{H}_
 \end{frame}
 
 \begin{frame}{Excision and future work}
-
-{\bf Excision:} For a map $\phi:(X,A)\to (Y,B)$ such that $Y\cong X\cup_{A}B$, we get that $\mathscr{H}^{pf}_{*}(X,A)\cong \mathscr{H}^{pf}_{*}(X\cup_{A}B, B)$. \pause
-
-\vspace{0.3cm}
-
-{\bf Idea:}
+For a map $\phi:(X,A)\to (Y,B)$ such that $Y\cong X\cup_{A}B$, we get that $\mathscr{H}^{pf}_{*}(X,A)\cong \mathscr{H}^{pf}_{*}(X\cup_{A}B, B)$. \pause
 \begin{align*}
     [M,\partial M,\pi_{M},x_{M}]\in\mathscr{H}^{pf}_{*}(X,A)\mapsto {[M,\partial M,\phi\circ\pi_{M},x_{M}]\in \mathscr{H}^{pf}_{*}(Y,B)}
 \end{align*}
-
 with inverse
 \begin{align*}
-    h([M,\partial M,\pi_{M},x_{M}])=[M_{X}=\pi_{M}^{-1}(U),\partial M_{X},r\circ\pi_{M}|_{M_{X}},i_{M_{X}}^{*}x_{M}].
+    h([M,\partial M,\pi_{M},x_{M}])=[M_{U}=\pi_{M}^{-1}(U),\partial M_{U},r\circ\pi_{M}|_{M_{U}},i_{M_{U}}^{*}x_{M}].
 \end{align*}\pause
-\begin{align*}
-\xymatrix{M \ar[d]_{\pi_{M}}& {M_{X}} \ar[d]_{ \pi_{M}}\ar[l]_{i_{M_{X}}} \\
-	Y & U\ar[l]_{i_{U}}\ar[r]_{r} & X\\
-    &X\ar[ul]^{\phi}\ar[u]^{i_{X}}&}
-\end{align*}
-
-    
+Consider $\widetilde{W}=M\times(0,1]\cup M_{U}\times \{0\}$, and with this, define
+    \begin{align*}
+        W=\widetilde{W}\cup_{\partial M\times(0,1]\cup \partial M_{U}\times \{0\}}\widetilde{W}.
+    \end{align*}   \pause
+    \begin{align*}
+        [M_{U},\partial M_{U},\phi\circ r\circ\pi_{M}|_{M_{U}},i_{M_{U}}^{*}x_{M}]
+        &=[W^{0},\emptyset,\pi_{W^{0}}, i_{1}!(x_{M})]\\
+        &=[M,\partial M,\pi_{M},x_{M}],
+    \end{align*}  
 \end{frame}
 
 
